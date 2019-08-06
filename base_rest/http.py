@@ -106,7 +106,9 @@ class HttpRestRequest(HttpRequest):
             # more information on https://github.com/aventurella/pyquerystring
             self.params = pyquerystring.parse(
                 self.httprequest.query_string.decode('utf-8'))
-        self._determine_context_lang()
+        # TDu : desactivate this as the python dependency accept_language
+        #       is not playing nice.
+        # self._determine_context_lang()
 
     def _determine_context_lang(self):
         """
